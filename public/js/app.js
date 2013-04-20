@@ -12,7 +12,7 @@ var App = new function() {
 	$(document).ready(function () {	
 		App.Door_Close(); //Show door closed after first load
 		App.Light_Close(); //Show light closed after first load
-		App.Sound_Off();
+		App.Sound_On();
 		//setInterval('flip()',1000);
 		$('#sound').click(function(){
 			if (App.getSound_On()) App.Sound_Off(); else App.Sound_On();
@@ -92,6 +92,16 @@ var App = new function() {
 		}
 	}
 	
+	//Notification functions
+	this.Notify_Message = function(_type, title,message) {
+		if (!(_type in {'alert':'','warning':'','success':'','info':''})) {
+			console.log('Error unknown Notify_Message type');
+			return;
+		}
+		
+		$('#' + _type + ' > #msg').html('<h3>' + title + '</h3>' + message)
+		$('#' + _type ).show();
+	}
 	
 
 }

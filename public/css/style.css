@@ -40,6 +40,10 @@ div.LightError {
 	background-repeat: no-repeat;
 }
 
+#sound {
+	z-index: 900;
+}
+
 div.SoundOn {
 	cursor: pointer;
 	position:relative;
@@ -92,4 +96,12 @@ div.DoorClose {
 	position:relative;
 	top: 415px;
 	left: 50px;
+}
+
+#alert, #warning, #success, #info {
+	z-index: 1000;
+	position:absolute;
+	top: 67px;
+	display: none;
+	width: 889px;
 }
