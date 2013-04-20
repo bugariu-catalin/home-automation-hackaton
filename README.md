@@ -14,7 +14,7 @@ Install required software on raspberry pi:
 	sudo /bin/bash
 	
 	#prerequisites
-	apt-get install git
+	apt-get install git libi2c-dev
 	
 	#LAMP stack
 	apt-get install apache2
@@ -25,6 +25,7 @@ Install required software on raspberry pi:
 	#espeak for speech
 	apt-get install espeak
 
+	#install WiringPi following the instructions on https://github.com/WiringPi/WiringPi/blob/master/INSTALL
 	
 INSTALL
 -------
@@ -39,4 +40,5 @@ http://hertaville.com/2012/11/18/introduction-to-accessing-the-raspberry-pis-gpi
 http://twitter.github.io/bootstrap/
 http://jquery.com/
 http://tympanus.net/codrops/2009/12/03/css-and-jquery-tutorial-overlay-with-slide-out-box/
-
+http://raspberrypi.stackexchange.com/questions/1505/how-to-attach-an-arduino
+https://github.com/WiringPi
