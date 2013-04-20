@@ -4,6 +4,8 @@ home-automation-hackaton
 Home Automation Hackaton
 
 Inteligent house project designed at hackaton.ro 2013
+The purpose of the project is to show the how you can improve your
+life with the help of the technology.
 
 CONFIGURE SERVER
 ----------------
@@ -29,6 +31,12 @@ Install required software on raspberry pi:
 	
 INSTALL
 -------
+    
+	git clone https://github.com/bugariu-catalin/home-automation-hackaton.git
+    cd src/rpi
+    gcc -o rpi rpi.c  -lwiringPi
+	
+Configure apache server to load the index from public/index.html
 
 REFERENCES
 ==========
