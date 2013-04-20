@@ -1,4 +1,4 @@
-
+var updateInterval = 5000;
 var App = new function() {
 	var _Door_Open = false;
 	var _Door_Bell = false;
@@ -31,6 +31,7 @@ var App = new function() {
                 $('#overlay').fadeOut('fast');
             });
         });
+		setInterval('App.updateStatus()',updateInterval);
 	});
 
 	//Light functions
@@ -132,6 +133,11 @@ var App = new function() {
 		$('#MotionIcon').hide();
 	}
 
+	this.updateStatus = function() {
+		$.post('api.php?get_status=1', function(data) {
+		  console.log(data);
+		});
+	}
 }
 //Test function
 //TODO: delete it
