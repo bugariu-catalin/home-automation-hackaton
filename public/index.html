@@ -49,6 +49,7 @@
 			<div id="door"></div>
 			<img id="DoorBell" src="img/door_bell.gif" width="30">
 			<img id="DoorLock" src="img/door_lock.jpg" width="30">
+			<img id="VideoIcon" src="img/video.jpg" width="48">
 			<div id="alert" class="alert alert-error">
 				<button type="button" class="close" data-dismiss="alert">&times;</button><div id="msg"></div>
 			</div>
@@ -63,6 +64,26 @@
 			</div>
 		</div>
     </div> <!-- /container -->
+    <div class="overlay" id="overlay" style="display:none;"></div>
+	<div class="box" id="box">
+		<a class="boxclose" id="boxclose"></a>
+		<div class="right" align="center">
+			<strong>Video Controll</strong>
+			<br><br>
+			<table>				
+				<tr><td></td><td><button class="btn btn-inverse" type="button">&nbsp;&uarr;&nbsp;</button></td><td></td></tr>
+				<tr><td><button class="btn btn-inverse" type="button">&larr;</button></td><td></td><td><button class="btn btn-inverse" type="button">&rarr;</button></td></tr>
+				<tr><td></td><td><button class="btn btn-inverse" type="button">&nbsp;&darr;&nbsp;</button></td><td></td></tr>
+			</table>
+			<br><br>
+			<button id="boxclose2" class="btn btn-inverse" type="button">&nbsp;Close&nbsp;</button>
+		</div>
+		<div class="left"><video></video></div>
+		<div style="clear:both">
+		<hr>
+		Video (320x200)
+    </div>
+	
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

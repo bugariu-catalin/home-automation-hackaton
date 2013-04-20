@@ -38,5 +38,5 @@ http://visualgdb.com/tutorials/raspberry/LED/
 http://hertaville.com/2012/11/18/introduction-to-accessing-the-raspberry-pis-gpio-in-c/
 http://twitter.github.io/bootstrap/
 http://jquery.com/
+http://tympanus.net/codrops/2009/12/03/css-and-jquery-tutorial-overlay-with-slide-out-box/
 
- 

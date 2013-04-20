@@ -14,9 +14,21 @@ var App = new function() {
 		App.Light_Close(); //Show light closed after first load
 		App.Sound_On();
 		//setInterval('flip()',1000);
+		
 		$('#sound').click(function(){
 			if (App.getSound_On()) App.Sound_Off(); else App.Sound_On();
 		});
+		
+		$('#VideoIcon').click(function(){
+            $('#overlay').fadeIn('fast',function(){
+				$('#box').animate({'top':'160px'},500);
+            });
+		});
+        $('#boxclose, #boxclose2').click(function(){
+            $('#box').animate({'top':'-1000px'},500,function(){
+                $('#overlay').fadeOut('fast');
+            });
+        });
 	});
 
 	//Light functions
