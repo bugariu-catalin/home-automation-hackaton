@@ -36,6 +36,7 @@ http://www.penguintutor.com/linux/raspberrypi-webserver
 http://robofun.ro/forum/viewtopic.php?f=22&t=262
 http://visualgdb.com/tutorials/raspberry/LED/
 http://hertaville.com/2012/11/18/introduction-to-accessing-the-raspberry-pis-gpio-in-c/
-
+http://twitter.github.io/bootstrap/
+http://jquery.com/
 
  
