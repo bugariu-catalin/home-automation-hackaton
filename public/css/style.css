@@ -10,7 +10,34 @@
 }
 
 
-#door  {
+div.LightClose {
+	position:relative;
+	top:125px;
+	left:400px;
+	width: 75px;
+	height: 100px;
+	background-image: url('../img/light_close.jpg');
+	background-repeat: no-repeat;
+}
+
+div.LightOpen {
+	position:relative;
+	top:125px;
+	left:400px;
+	width: 78px;
+	height: 98px;
+	background-image: url('../img/light_open.jpg');
+	background-repeat: no-repeat;
+}
+
+div.LightError {
+	position:relative;
+	top:125px;
+	left:400px;
+	width: 69px;
+	height: 99px;
+	background-image: url('../img/light_error.jpg');
+	background-repeat: no-repeat;
 }
 
 div.DoorOpen {
@@ -19,6 +46,7 @@ div.DoorOpen {
 	width: 71px;
 	height: 148px;
 	background-image: url('../img/door_open.jpg');	
+	background-repeat: no-repeat;
 }
 
 div.DoorClose {
@@ -27,6 +55,7 @@ div.DoorClose {
 	width: 78px;
 	height: 149px;
 	background-image: url('../img/door_close.jpg');
+	background-repeat: no-repeat;
 }
 
 #DoorBell {
