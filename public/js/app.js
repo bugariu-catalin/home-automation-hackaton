@@ -8,11 +8,13 @@ var App = new function() {
 	var _Light_Error = false;
 	
 	var _Sound_On = true;
+	var _Motion_On = true;
 	
 	$(document).ready(function () {	
 		App.Door_Close(); //Show door closed after first load
 		App.Light_Close(); //Show light closed after first load
 		App.Sound_On();
+		App.Motion_Off();
 		//setInterval('flip()',1000);
 		
 		$('#sound').click(function(){
@@ -115,14 +117,28 @@ var App = new function() {
 		$('#' + _type ).show();
 	}
 	
+	//Mation functions
+	this.getMotion_On = function() {
+		return _Motion_On;
+	}
+	
+	this.Motion_On = function() {
+		_Motion_On = true;
+		$('#MotionIcon').show();
+	}
+	
+	this.Motion_Off = function() {
+		_Motion_On = false;
+		$('#MotionIcon').hide();
+	}
 
 }
 //Test function
 //TODO: delete it
 function flip() {
-	if (!App.getSound_On()) {
-		App.Sound_On();
+	if (!App.getMotion_On()) {
+		App.Motion_On();
 	} else {
-		App.Sound_Off();
+		App.Motion_Off();
 	}
 }
