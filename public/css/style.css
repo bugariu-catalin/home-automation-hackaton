@@ -40,6 +40,28 @@ div.LightError {
 	background-repeat: no-repeat;
 }
 
+div.SoundOn {
+	cursor: pointer;
+	position:relative;
+	top:-95px;
+	left: 885px;
+	width: 48px;
+	height: 48px;
+	background-image: url('../img/sound_on.jpg');
+	background-repeat: no-repeat;
+}
+
+div.SoundOff {
+	cursor: pointer;
+	position:relative;
+	top:-95px;
+	left: 885px;
+	width: 48px;
+	height: 48px;
+	background-image: url('../img/sound_off.jpg');
+	background-repeat: no-repeat;
+}
+
 div.DoorOpen {
 	position:absolute;
 	top:418px;

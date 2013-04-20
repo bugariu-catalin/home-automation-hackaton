@@ -7,10 +7,16 @@ var App = new function() {
 	var _Light_Open = false;
 	var _Light_Error = false;
 	
+	var _Sound_On = true;
+	
 	$(document).ready(function () {	
 		App.Door_Close(); //Show door closed after first load
 		App.Light_Close(); //Show light closed after first load
+		App.Sound_Off();
 		//setInterval('flip()',1000);
+		$('#sound').click(function(){
+			if (App.getSound_On()) App.Sound_Off(); else App.Sound_On();
+		});
 	});
 
 	//Light functions
@@ -37,7 +43,24 @@ var App = new function() {
 				   .removeClass('LightClose')
 				   .addClass('LightError');
 	}
+
+	//Sound functions
+	this.getSound_On = function() {
+		return _Sound_On;
+	}
 	
+	this.Sound_On = function() {
+		_Sound_On = true;
+		$('#sound').removeClass('SoundOff')
+		           .addClass('SoundOn');
+	}
+
+	this.Sound_Off = function() {
+		_Sound_On = false;
+		$('#sound').removeClass('SoundOn')
+		           .addClass('SoundOff');
+	}
+
 	//Door functions
 	this.getDoor_Open = function() {
 		return _Door_Open;
@@ -75,9 +98,9 @@ var App = new function() {
 //Test function
 //TODO: delete it
 function flip() {
-	if (!App.getLight_Open()) {
-		App.Light_Open();
+	if (!App.getSound_On()) {
+		App.Sound_On();
 	} else {
-		App.Light_Close();
+		App.Sound_Off();
 	}
 }
