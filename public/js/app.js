@@ -136,7 +136,7 @@ var App = new function() {
 	this.updateStatus = function() {
 		$.post('api.php?get_status=1', function(data) {
 		  console.log(data);
-		});
+		},'json');
 	}
 }
 //Test function
