@@ -1,5 +1,5 @@
 #dashboard{
-	width:1000px;
+	width:940px;
 	height:500px;
 	border:1px solid #000000;
 }
@@ -14,13 +14,31 @@
 }
 
 div.DoorOpen {
+	position:absolute;
+	top:418px;
 	width: 71px;
 	height: 148px;
 	background-image: url('../img/door_open.jpg');	
 }
 
 div.DoorClose {
+	position:absolute;
+	top:418px;
 	width: 78px;
 	height: 149px;
 	background-image: url('../img/door_close.jpg');
+}
+
+#DoorBell {
+	display:none;
+	position:relative;
+	top:325px;
+	left:25px;
+}
+
+#DoorLock {
+	display:none;
+	position:relative;
+	top: 415px;
+	left: 50px;
 }
