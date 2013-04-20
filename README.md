@@ -5,12 +5,16 @@ Home Automation Hackaton
 
 Inteligent house project designed at hackaton.ro 2013
 
-CONFIGURE
----------
+CONFIGURE SERVER
+----------------
 
 Install required software on raspberry pi:
 
-    sudo /bin/bash
+    #you need to be superuser to install things
+	sudo /bin/bash
+	
+	#prerequisites
+	apt-get install git
 	
 	#LAMP stack
 	apt-get install apache2
@@ -20,7 +24,11 @@ Install required software on raspberry pi:
 	
 	#espeak for speech
 	apt-get install espeak
+
 	
+INSTALL
+-------
+
 REFERENCES
 ==========
 http://ro-duino.blogspot.ro/2012/06/apache-php-si-mysql-pe-raspberry-pi.html
