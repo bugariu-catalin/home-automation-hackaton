@@ -136,6 +136,7 @@ var App = new function() {
 	this.updateStatus = function() {
 		$.post('api.php?get_status=1', function(data) {
 		  console.log(data);
+		  if (data._Light_Open) App.Light_Open(); else App.Light_Close(); 
 		},'json');
 	}
 }
