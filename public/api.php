@@ -9,8 +9,6 @@ if ($_REQUEST['get_status']==1) {
 		$a[$item[0]] = $item[1];
 	}
 	echo json_encode($a);
-} elseif (isset($_REQUEST['door_bell'])) {
-	exec("espeak -v ro --stdout 'Suna cineva la usa' | aplay");
 } elseif (isset($_REQUEST['video_control'])) {
 	
 }

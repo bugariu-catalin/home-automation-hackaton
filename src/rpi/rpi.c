@@ -57,6 +57,7 @@ void readSensors() {
 }
 
 void notify() {
+	if (_Door_Bell==true) system("espeak -v ro --stdout 'Test' | aplay");
 }
 
 void saveAllStatus() {

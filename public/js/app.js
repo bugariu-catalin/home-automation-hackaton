@@ -105,7 +105,6 @@ var App = new function() {
 	this.Door_Bell = function() {
 		if (_Door_Bell) {
 			$('#DoorBell').show();
-			$.post('api.php?door_bell=1', function(data) {});
 		} else {
 			$('#DoorBell').hide();
 		}
