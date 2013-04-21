@@ -77,7 +77,7 @@ void readRemoteData() {
 		}
 	}
 	printf ("cmd=%s\ndata=%s\n",remoteCmd, cmd, data) ;
-	remoteCmd = "";
+	strcpy(remoteCmd, "");
 }
 
 void saveAllStatus() {
