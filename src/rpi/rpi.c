@@ -82,8 +82,8 @@ void readRemoteData() {
 	printf ("cmd=%s\ndata=%s\n", cmd, data) ;	
 	
 	//process known commands
-	if (strncmp(cmd,"RFID_AUTH", sizeof(cmd)) == 0) {
-		if (strncmp(data,"006AB71484", sizeof(data)) == 0) {
+	if (strncmp(cmd,"RFID_AUTH", sizeof("RFID_AUTH")) == 0) {
+		if (strncmp(data,"006AB71484", sizeof("006AB71484")) == 0) {
 			//allow
 			printf("allow\n");
 		} else {
