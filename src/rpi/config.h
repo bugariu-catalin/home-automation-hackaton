@@ -20,5 +20,5 @@ bool _Motion_On = true;
 #define DOOR_BELL 8 //GPIO2
 
 //AUTH keys
-char *keys[1];
-keys[0] = "006AB71484";
+char *users[1];
+users[0] = "006AB71484";

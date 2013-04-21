@@ -128,7 +128,7 @@ void saveAllStatus() {
 		fclose (pFile);
 	}
 }
-
+/*
 bool validateAuthKey(char *key) {
 	for (int i=0; i<sizeof(keys); i++ {
 		printf("Check auth for key %d\n",i);
@@ -136,3 +136,4 @@ bool validateAuthKey(char *key) {
 	
 	return false;
 }
+*/
