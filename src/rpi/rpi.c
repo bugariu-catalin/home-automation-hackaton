@@ -86,23 +86,14 @@ void readRemoteData() {
 	strcpy(remoteCmd, "");
 	
 	//process known commands
-	if (strncmp(cmd,"cmd", sizeof(cmd)) == 0) {
+	/*if (strncmp(cmd,"cmd", sizeof(cmd)) == 0) {
 		//validate key
 		if (validateAuthKey(data) == true) {
 		}
-	}
+	}*/
 	
 	strcpy(cmd, "");
 	strcpy(data, "");
-}
-
-void validateAuthKey(char *key) {
-	int i;
-	for (i=0; i<total_users; i++ {
-		printf("Check auth for key %s\n",users[i]);
-	}
-	
-
 }
 
 void saveAllStatus() {
