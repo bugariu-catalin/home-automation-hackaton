@@ -35,7 +35,7 @@ INSTALL
 	git clone https://github.com/bugariu-catalin/home-automation-hackaton.git
     cd src/rpi
     gcc -o rpi rpi.c  -lwiringPi
-	
+	./rpi
 Configure apache server to load the index from public/index.html
 
 REFERENCES
