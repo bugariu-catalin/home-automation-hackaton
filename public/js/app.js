@@ -104,7 +104,8 @@ var App = new function() {
 	
 	this.Door_Bell = function() {
 		if (_Door_Bell) {
-			$('#DoorBell').show();	
+			$('#DoorBell').show();
+			$.post('api.php?door_bell=1', function(data) {});
 		} else {
 			$('#DoorBell').hide();
 		}
@@ -146,12 +147,11 @@ var App = new function() {
 
 	this.updateStatus = function() {
 		$.post('api.php?get_status=1', function(data) {
-		  console.log(data);
-		  if (data._Light_Open == 'true') App.Light_Open(); else App.Light_Close(); 
-		  if (data._Door_Bell != _Door_Bell) {
-			_Door_Bell = data._Door_Bell;
-			App.Door_Bell();
-		  }
+			console.log(data);
+			if (data._Light_Open == 'true') App.Light_Open(); else App.Light_Close(); 
+				_Door_Bell = data._Door_Bell;
+				App.Door_Bell();
+			}
 		},'json');
 	}
 }
