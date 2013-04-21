@@ -14,3 +14,4 @@ void readSensors();
 void saveAllStatus();
 void notify();
 void readRemoteData();
+bool validateAuthKey(char *key);

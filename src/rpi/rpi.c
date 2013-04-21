@@ -77,8 +77,18 @@ void readRemoteData() {
 			strcpy(data, tmp);
 		}
 	}
-	printf ("cmd=%s\ndata=%s\n",remoteCmd, cmd, data) ;
+	printf ("cmd=%s\ndata=%s\n",remoteCmd, cmd, data) ;	
 	strcpy(remoteCmd, "");
+	
+	//process known commands
+	if (strncmp(cmd,"cmd") == 0) {
+		//validate key
+		if (validateAuthKey(data) == true) {
+		}
+	}
+	
+	strcpy(cmd, "");
+	strcpy(data, "");
 }
 
 void saveAllStatus() {
@@ -117,4 +127,12 @@ void saveAllStatus() {
 		}
 		fclose (pFile);
 	}
+}
+
+bool validateAuthKey(char *key) {
+	for (int i=0; i<sizeof(keys); i++ {
+		printf("Check auth for key %s\n",keys[i]);
+	}
+	
+	return false;
 }

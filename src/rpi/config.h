@@ -18,3 +18,6 @@ bool _Motion_On = true;
 //Pins
 #define	LIGHT_ON 4 //GPIO23
 #define DOOR_BELL 8 //GPIO2
+
+//AUTH keys
+char keys[1][] = "006AB71484";
