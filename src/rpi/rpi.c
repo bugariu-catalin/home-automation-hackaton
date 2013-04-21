@@ -4,7 +4,8 @@ char remoteCmd[250] = "";
 
 int main() {
 	//AUTH keys
-	char *users[1];
+	const int total_users = 1;
+	char *users[total_users];
 	users[0] = "006AB71484";
 
   printf("Starting rpi.\n");
@@ -134,7 +135,8 @@ void saveAllStatus() {
 }
 
 bool validateAuthKey(char *key) {
-	for (int i=0; i<sizeof(users); i++ {
+	int i;
+	for (i=0; i<total_users; i++ {
 		printf("Check auth for key %s\n",users[i]);
 	}
 	
