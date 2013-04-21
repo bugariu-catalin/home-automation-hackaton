@@ -18,24 +18,11 @@ int main() {
     fprintf (stderr, "Unable to open serial device: %s to communicate with arduino\n", strerror (errno)) ;
     return 1 ;
   }
-/*
-  for (;;)
-  {
 
-    serialPuts (fd,s);
-    putchar (serialGetchar (fd)) ;
-    fflush (stdout) ;
-  }
-  */
    
   for (;;) {
 	readSensors();
-	//Read remote data
-	while (serialDataAvail (fd))
-    {
-      printf (" -> %3d", serialGetchar (fd)) ;
-      fflush (stdout) ;
-    }
+	readRemoteData();
 	saveAllStatus();
 	notify();
 	delay (100) ;//wait for next reading
