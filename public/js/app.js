@@ -149,6 +149,10 @@ var App = new function() {
 		$.post('api.php?get_status=1', function(data) {
 		  console.log(data);
 		  if (data._Light_Open == 'true') App.Light_Open(); else App.Light_Close(); 
+		  if (data._Door_Bell != _Door_Bell) {
+			_Door_Bell = data._Door_Bell;
+			App.Door_Bell();
+		  }
 		},'json');
 	}
 }
