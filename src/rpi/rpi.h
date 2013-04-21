@@ -13,3 +13,4 @@ void lightOff();
 void readSensors();
 void saveAllStatus();
 void notify();
+void readRemoteData();

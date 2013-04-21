@@ -1,8 +1,7 @@
 #include "rpi.h"
 
 
-int main ()
-{
+int main() {
   printf("Starting rpi.\n");
   
   if (wiringPiSetup () == -1) {
@@ -13,13 +12,13 @@ int main ()
   //Setup pins
   pinMode (LIGHT_ON, OUTPUT) ;
   pinMode (DOOR_BELL, INPUT) ;
-  /*
+
   if ((A_HANDLER = serialOpen (A_COM, A_BAUD)) < 0)
   {
     fprintf (stderr, "Unable to open serial device: %s to communicate with arduino\n", strerror (errno)) ;
     return 1 ;
   }
-
+/*
   for (;;)
   {
 
@@ -27,18 +26,25 @@ int main ()
     putchar (serialGetchar (fd)) ;
     fflush (stdout) ;
   }
-  
-  if (A_HANDLER) {
-	serialClose(A_HANDLER);
-  }*/
+  */
    
   for (;;) {
 	readSensors();
+	//Read remote data
+	while (serialDataAvail (fd))
+    {
+      printf (" -> %3d", serialGetchar (fd)) ;
+      fflush (stdout) ;
+    }
 	saveAllStatus();
 	notify();
 	delay (100) ;//wait for next reading
   }
-  
+
+  if (A_HANDLER) {
+	serialClose(A_HANDLER);
+  }
+
   return 0;
 }
 
@@ -58,6 +64,14 @@ void readSensors() {
 
 void notify() {
 	if (_Door_Bell==true) system("espeak -v ro --stdout 'E cineva la usa!' | aplay");
+}
+
+void readRemoteData() {
+	while (serialDataAvail (A_HANDLER))
+    {
+      printf (" -> %3d", serialGetchar (A_HANDLER)) ;
+      fflush (stdout) ;
+    }
 }
 
 void saveAllStatus() {
