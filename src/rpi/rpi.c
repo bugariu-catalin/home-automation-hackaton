@@ -83,8 +83,8 @@ void readRemoteData() {
 	//process known commands
 	if (strncmp(cmd,"cmd") == 0) {
 		//validate key
-		if (validateAuthKey(data) == true) {
-		}
+		//if (validateAuthKey(data) == true) {
+		//}
 	}
 	
 	strcpy(cmd, "");
