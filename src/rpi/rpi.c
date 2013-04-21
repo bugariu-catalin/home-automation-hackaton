@@ -85,7 +85,7 @@ void readRemoteData() {
 	strcpy(remoteCmd, "");
 	
 	//process known commands
-	if (strncmp(cmd,"cmd") == 0) {
+	if (strncmp(cmd,"cmd", sizeof(cmd)) == 0) {
 		//validate key
 		if (validateAuthKey(data) == true) {
 		}
@@ -134,8 +134,8 @@ void saveAllStatus() {
 }
 
 bool validateAuthKey(char *key) {
-	for (int i=0; i<sizeof(keys); i++ {
-		printf("Check auth for key %d\n",i);
+	for (int i=0; i<sizeof(users); i++ {
+		printf("Check auth for key %s\n",users[i]);
 	}
 	
 	return false;
