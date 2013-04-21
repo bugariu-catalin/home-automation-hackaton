@@ -78,12 +78,12 @@ void readRemoteData() {
 			strcpy(data, tmp);
 		}
 	}
-	printf ("cmd=%s\ndata=%s\n",remoteCmd, cmd, data) ;	
 	strcpy(remoteCmd, "");
+	printf ("cmd=%s\ndata=%s\n", cmd, data) ;	
 	
 	//process known commands
 	if (strncmp(cmd,"RFID_AUTH", sizeof(cmd)) == 0) {
-		if (strncmp(data,"006AB71484", sizeof(cmd)) == 0) {
+		if (strncmp(data,"006AB71484", sizeof(data)) == 0) {
 			//allow
 			printf("allow\n");
 		} else {

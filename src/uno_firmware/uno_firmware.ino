@@ -17,6 +17,7 @@ void setup() {
   Serial.begin(9600);
   id20.begin(9600);
   COM_data.reserve(200);
+  RFID_data.reserve(200);
   pinMode(PIRPin, INPUT);  
 
 }
