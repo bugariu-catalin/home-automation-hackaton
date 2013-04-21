@@ -21,7 +21,7 @@ int main() {
     return 1 ;
   }
 
-   
+   lightOn();
   for (;;) {
 	readSensors();
 	readRemoteData();
@@ -49,6 +49,11 @@ void lightOff() {
 
 void readSensors() {
 	if (digitalRead(DOOR_BELL)==0) _Door_Bell = true; else _Door_Bell = false;
+	if (_Door_Bell==true) {
+   		lightOn();
+		delay(500);
+		lightOff();
+	}
 }
 
 void notify() {
@@ -60,40 +65,45 @@ void readRemoteData() {
 	char cmd[] = "";
 	char data[] = "";
 	char * tmp;
+	int i = 0;
 	strcpy(remoteCmd, "");
 	while (serialDataAvail (A_HANDLER)) {
 	  snprintf(buffer, sizeof(buffer), "%s%c", remoteCmd, serialGetchar (A_HANDLER));
 	  strcpy(remoteCmd, buffer);
-    }
+      }
+      strcpy(buffer, "");
+
 	
 	if (strlen(remoteCmd) == 0) return;
-	
-	//decode data
 
-	tmp = strtok(remoteCmd, "=");
-	if (tmp!=NULL) {
-		strcpy(cmd, tmp);
-		tmp = strtok(NULL, "=");
-		if (tmp!=NULL) {
-			strcpy(data, tmp);
-		}
+	if (strncmp(remoteCmd,"RFID_AUTH=006AB71484", sizeof("RFID_AUTH=006AB71484")) == 0) {
+		printf ("found %s\n", remoteCmd);
+	} else {
+		printf ("unknown %s\n", remoteCmd);
 	}
-	strcpy(remoteCmd, "");
+	system("espeak --stdout 'Access denied!' | aplay");
+		
+/*
+//	strcpy(remoteCmd, "");
 	printf ("cmd=%s\ndata=%s\n", cmd, data) ;	
 	
 	//process known commands
-	if (strncmp(cmd,"RFID_AUTH", sizeof("RFID_AUTH")) == 0) {
-		if (strncmp(data,"006AB71484", sizeof("006AB71484")) == 0) {
+	if (strncmp(cmd,"RFID_AUTH", sizeof(cmd)) == 0) {
+		if (strncmp(data,"006AB71484", sizeof(data)) == 0) {
 			//allow
 			printf("allow\n");
 		} else {
 			//deny
 			printf("deny\n");
 		}
-	}
+	} else {
+              printf("UK com [%s][%s]",cmd,data);
+        }
+	
+
 	
 	strcpy(cmd, "");
-	strcpy(data, "");
+	strcpy(data, "");*/
 }
 
 void saveAllStatus() {
