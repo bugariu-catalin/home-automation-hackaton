@@ -96,6 +96,15 @@ void readRemoteData() {
 	strcpy(data, "");
 }
 
+void validateAuthKey(char *key) {
+	int i;
+	for (i=0; i<total_users; i++ {
+		printf("Check auth for key %s\n",users[i]);
+	}
+	
+
+}
+
 void saveAllStatus() {
 	FILE * pFile;
 	pFile = fopen (statusFile,"w+");
@@ -134,11 +143,3 @@ void saveAllStatus() {
 	}
 }
 
-bool validateAuthKey(char *key) {
-	int i;
-	for (i=0; i<total_users; i++ {
-		printf("Check auth for key %s\n",users[i]);
-	}
-	
-	return false;
-}
