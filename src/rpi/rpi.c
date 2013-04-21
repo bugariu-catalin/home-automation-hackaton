@@ -3,6 +3,8 @@
 
 int main ()
 {
+  printf("Starting rpi.\n");
+  
   if (wiringPiSetup () == -1) {
     fprintf (stderr, "Error on wiringPiSetup") ;
     return 1 ;
@@ -54,10 +56,6 @@ void readSensors() {
 	if (digitalRead(DOOR_BELL)==0) _Door_Bell = true; else _Door_Bell = false;
 }
 
-bool getLightOn() {
-	return _Light_Open;
-}
-
 void notify() {
 }
 
@@ -65,32 +63,32 @@ void saveAllStatus() {
 	FILE * pFile;
 	pFile = fopen (statusFile,"w+");
 	if (pFile!=NULL) {
-		if (getLightOn) {
+		if (_Light_Open==true) {
 			fputs ("_Light_Open=true\n",pFile);
 		} else {
 			fputs ("_Light_Open=false\n",pFile);
 		}
-		if (_Light_Error) {
+		if (_Light_Error==true) {
 			fputs ("_Light_Error=true\n",pFile);
 		} else {
 			fputs ("_Light_Error=false\n",pFile);
 		}
-		if (_Sound_On) {
+		if (_Sound_On==true) {
 			fputs ("_Sound_On=true\n",pFile);
 		} else {
 			fputs ("_Sound_On=false\n",pFile);
 		}
-		if (_Motion_On) {
+		if (_Motion_On==true) {
 			fputs ("_Motion_On=true\n",pFile);
 		} else {
 			fputs ("_Motion_On=false\n",pFile);
 		}
-		if (_Door_Lock) {
+		if (_Door_Lock==true) {
 			fputs ("_Door_Lock=true\n",pFile);
 		} else {
 			fputs ("_Door_Lock=false\n",pFile);
 		}
-		if (_Door_Bell) {
+		if (_Door_Bell==true) {
 			fputs ("_Door_Bell=true\n",pFile);
 		} else {
 			fputs ("_Door_Bell=false\n",pFile);
