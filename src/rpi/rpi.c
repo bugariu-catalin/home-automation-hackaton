@@ -61,7 +61,7 @@ void readRemoteData() {
 	  strcpy(remoteCmd, buffer);
     }
 	
-	printf ("remoteCmd=%s\n", remoteCmd) ;
+	printf ("remoteCmd (%d)=%s\n", strlen(remoteCmd), remoteCmd) ;
 }
 
 void saveAllStatus() {
