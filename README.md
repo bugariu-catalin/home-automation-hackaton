@@ -3,7 +3,7 @@ home-automation-hackaton
 
 Home Automation Hackaton
 
-Inteligent house project designed at hackaton.ro 2013
+Inteligent house project designed at hackaton.ro 2013 for Software category.
 The purpose of the project is to show the how you can improve your
 life with the help of the technology.
 
