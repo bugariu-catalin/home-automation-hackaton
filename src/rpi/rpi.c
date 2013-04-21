@@ -56,12 +56,27 @@ void notify() {
 
 void readRemoteData() {
 	char buffer[250] = "";
+	char cmd[] = "";
+	char data[] = "";
+	char * tmp;
 	while (serialDataAvail (A_HANDLER)) {
 	  snprintf(buffer, sizeof(buffer), "%s%c", remoteCmd, serialGetchar (A_HANDLER));
 	  strcpy(remoteCmd, buffer);
     }
 	
-	printf ("remoteCmd (%d)=%s\n", strlen(remoteCmd), remoteCmd) ;
+	if (strlen(remoteCmd) == 0) return;
+	
+	//decode data
+
+	tmp = strtok(remoteCmd, "=");
+	if (tmp!=NULL) {
+		strcpy(cmd, tmp);
+		tmp = strtok(NULL, "=");
+		if (tmp!=NULL) {
+			strcpy(data, tmp);
+		}
+	}
+	printf ("remoteCmd=%s\ndata=%s\n", cmd, data) ;
 }
 
 void saveAllStatus() {
