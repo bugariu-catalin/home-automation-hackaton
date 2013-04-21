@@ -1,5 +1,6 @@
 #include "rpi.h"
 
+char remoteCmd[250] = "";
 
 int main() {
   printf("Starting rpi.\n");
@@ -54,11 +55,13 @@ void notify() {
 }
 
 void readRemoteData() {
-	while (serialDataAvail (A_HANDLER))
-    {
-      printf (" -> %3d", serialGetchar (A_HANDLER)) ;
-      fflush (stdout) ;
+	char buffer[250] = "";
+	while (serialDataAvail (A_HANDLER)) {
+	  snprintf(buffer, sizeof(buffer), "%s%c", remoteCmd, serialGetchar (A_HANDLER));
+	  strcpy(remoteCmd, buffer);
     }
+	
+	printf ("remoteCmd=%s\n", remoteCmd) ;
 }
 
 void saveAllStatus() {
