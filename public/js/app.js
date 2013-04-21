@@ -26,6 +26,18 @@ var App = new function() {
 				$('#box').animate({'top':'160px'},500);
             });
 		});
+		$('#video_up').click(function(){
+			$.post('api.php?video_control=up', function(data) {});
+		});
+		$('#video_down').click(function(){
+			$.post('api.php?video_control=down', function(data) {});
+		});
+		$('#video_left').click(function(){
+			$.post('api.php?video_control=left', function(data) {});
+		});
+		$('#video_right').click(function(){
+			$.post('api.php?video_control=right', function(data) {});
+		});
         $('#boxclose, #boxclose2').click(function(){
             $('#box').animate({'top':'-1000px'},500,function(){
                 $('#overlay').fadeOut('fast');
@@ -136,7 +148,7 @@ var App = new function() {
 	this.updateStatus = function() {
 		$.post('api.php?get_status=1', function(data) {
 		  console.log(data);
-		  if (data._Light_Open) App.Light_Open(); else App.Light_Close(); 
+		  if (data._Light_Open == 'true') App.Light_Open(); else App.Light_Close(); 
 		},'json');
 	}
 }

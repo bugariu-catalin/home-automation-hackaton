@@ -10,7 +10,7 @@ int main ()
   
   //Setup pins
   pinMode (LIGHT_ON, OUTPUT) ;
-  saveAllStatus();
+  pinMode (DOOR_BELL, INPUT) ;
   /*
   if ((A_HANDLER = serialOpen (A_COM, A_BAUD)) < 0)
   {
@@ -30,14 +30,15 @@ int main ()
 	serialClose(A_HANDLER);
   }*/
    
+  notify();
+  /*
+  for (;;) {
+	readSensors();
+	saveAllStatus();
+	notify();
+	delay (1000) ;//wait for next reading
+  } */
   
-for (;;)
-  {
- lightOn();   
- delay (500) ;		// mS
-    lightOff();
-    delay (500) ;
-  }  
   return 0;
 }
 
@@ -51,8 +52,19 @@ void lightOff() {
 	digitalWrite(LIGHT_ON, 0);
 }
 
+void readSensors() {
+	if (digitalRead(DOOR_BELL)==0) _Door_Bell = true; else _Door_Bell = false;
+}
+
 bool getLightOn() {
 	return _Light_Open;
+}
+
+void notify() {
+	//if (_Door_Bell) {
+		char *args[] = {"-v", "ro", "--stdout", "'E cineva la usa'", "|", "aplay", NULL };
+		execv("espeak", args);
+	//}
 }
 
 void saveAllStatus() {
@@ -63,6 +75,31 @@ void saveAllStatus() {
 			fputs ("_Light_Open=true",pFile);
 		} else {
 			fputs ("_Light_Open=false",pFile);
+		}
+		if (_Light_Error) {
+			fputs ("_Light_Error=true",pFile);
+		} else {
+			fputs ("_Light_Error=false",pFile);
+		}
+		if (_Sound_On) {
+			fputs ("_Sound_On=true",pFile);
+		} else {
+			fputs ("_Sound_On=false",pFile);
+		}
+		if (_Motion_On) {
+			fputs ("_Motion_On=true",pFile);
+		} else {
+			fputs ("_Motion_On=false",pFile);
+		}
+		if (_Door_Lock) {
+			fputs ("_Door_Lock=true",pFile);
+		} else {
+			fputs ("_Door_Lock=false",pFile);
+		}
+		if (_Door_Bell) {
+			fputs ("_Door_Bell=true",pFile);
+		} else {
+			fputs ("_Door_Bell=false",pFile);
 		}
 		fclose (pFile);
 	}

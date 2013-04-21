@@ -11,4 +11,6 @@
 void lightOn();
 void lightOff();
 bool getLightOn();
+void readSensors();
 void saveAllStatus();
+void notify();

@@ -9,5 +9,7 @@ if ($_REQUEST['get_status']==1) {
 		$a[$item[0]] = $item[1];
 	}
 	echo json_encode($a);
+} elseif (isset($_REQUEST['video_control'])) {
+	
 }
 ?>
