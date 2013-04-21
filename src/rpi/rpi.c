@@ -30,14 +30,12 @@ int main ()
 	serialClose(A_HANDLER);
   }*/
    
-  notify();
-  /*
   for (;;) {
 	readSensors();
 	saveAllStatus();
 	notify();
 	delay (1000) ;//wait for next reading
-  } */
+  }
   
   return 0;
 }
@@ -61,10 +59,6 @@ bool getLightOn() {
 }
 
 void notify() {
-	//if (_Door_Bell) {
-		char *args[] = {"-v", "ro", "--stdout", "'E cineva la usa'", "|", "aplay", NULL };
-		execv("espeak", args);
-	//}
 }
 
 void saveAllStatus() {
