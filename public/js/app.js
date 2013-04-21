@@ -16,7 +16,6 @@ var App = new function() {
 		App.Sound_On();
 		App.Motion_Off();
 		//setInterval('flip()',1000);
-		
 		$('#sound').click(function(){
 			if (App.getSound_On()) App.Sound_Off(); else App.Sound_On();
 		});

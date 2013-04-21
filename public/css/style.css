@@ -86,9 +86,9 @@ div.DoorClose {
 
 #DoorBell {
 	display:none;
-	position:relative;
-	top:325px;
-	left:25px;
+	position:absolute;
+	top:385px;
+	left:280px;
 }
 
 #DoorLock {
