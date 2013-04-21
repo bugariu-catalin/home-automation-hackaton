@@ -3,10 +3,6 @@
 char remoteCmd[250] = "";
 
 int main() {
-	//AUTH keys
-	const int total_users = 1;
-	char *users[total_users];
-	users[0] = "006AB71484";
 
   printf("Starting rpi.\n");
   
@@ -86,11 +82,15 @@ void readRemoteData() {
 	strcpy(remoteCmd, "");
 	
 	//process known commands
-	/*if (strncmp(cmd,"cmd", sizeof(cmd)) == 0) {
-		//validate key
-		if (validateAuthKey(data) == true) {
+	if (strncmp(cmd,"RFID_AUTH", sizeof(cmd)) == 0) {
+		if (strncmp(data,"006AB71484", sizeof(cmd)) == 0) {
+			//allow
+			printf("allow\n");
+		} else {
+			//deny
+			printf("deny\n");
 		}
-	}*/
+	}
 	
 	strcpy(cmd, "");
 	strcpy(data, "");
