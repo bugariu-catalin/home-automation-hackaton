@@ -3,6 +3,10 @@
 char remoteCmd[250] = "";
 
 int main() {
+	//AUTH keys
+	char *users[1];
+	users[0] = "006AB71484";
+
   printf("Starting rpi.\n");
   
   if (wiringPiSetup () == -1) {
@@ -83,8 +87,8 @@ void readRemoteData() {
 	//process known commands
 	if (strncmp(cmd,"cmd") == 0) {
 		//validate key
-		//if (validateAuthKey(data) == true) {
-		//}
+		if (validateAuthKey(data) == true) {
+		}
 	}
 	
 	strcpy(cmd, "");
@@ -128,7 +132,7 @@ void saveAllStatus() {
 		fclose (pFile);
 	}
 }
-/*
+
 bool validateAuthKey(char *key) {
 	for (int i=0; i<sizeof(keys); i++ {
 		printf("Check auth for key %d\n",i);
@@ -136,4 +140,3 @@ bool validateAuthKey(char *key) {
 	
 	return false;
 }
-*/
