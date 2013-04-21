@@ -66,34 +66,34 @@ void saveAllStatus() {
 	pFile = fopen (statusFile,"w+");
 	if (pFile!=NULL) {
 		if (getLightOn) {
-			fputs ("_Light_Open=true",pFile);
+			fputs ("_Light_Open=true\n",pFile);
 		} else {
-			fputs ("_Light_Open=false",pFile);
+			fputs ("_Light_Open=false\n",pFile);
 		}
 		if (_Light_Error) {
-			fputs ("_Light_Error=true",pFile);
+			fputs ("_Light_Error=true\n",pFile);
 		} else {
-			fputs ("_Light_Error=false",pFile);
+			fputs ("_Light_Error=false\n",pFile);
 		}
 		if (_Sound_On) {
-			fputs ("_Sound_On=true",pFile);
+			fputs ("_Sound_On=true\n",pFile);
 		} else {
-			fputs ("_Sound_On=false",pFile);
+			fputs ("_Sound_On=false\n",pFile);
 		}
 		if (_Motion_On) {
-			fputs ("_Motion_On=true",pFile);
+			fputs ("_Motion_On=true\n",pFile);
 		} else {
-			fputs ("_Motion_On=false",pFile);
+			fputs ("_Motion_On=false\n",pFile);
 		}
 		if (_Door_Lock) {
-			fputs ("_Door_Lock=true",pFile);
+			fputs ("_Door_Lock=true\n",pFile);
 		} else {
-			fputs ("_Door_Lock=false",pFile);
+			fputs ("_Door_Lock=false\n",pFile);
 		}
 		if (_Door_Bell) {
-			fputs ("_Door_Bell=true",pFile);
+			fputs ("_Door_Bell=true\n",pFile);
 		} else {
-			fputs ("_Door_Bell=false",pFile);
+			fputs ("_Door_Bell=false\n",pFile);
 		}
 		fclose (pFile);
 	}
