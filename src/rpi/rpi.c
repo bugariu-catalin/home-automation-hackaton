@@ -36,7 +36,7 @@ int main ()
 	readSensors();
 	saveAllStatus();
 	notify();
-	delay (1000) ;//wait for next reading
+	delay (100) ;//wait for next reading
   }
   
   return 0;
@@ -57,7 +57,7 @@ void readSensors() {
 }
 
 void notify() {
-	if (_Door_Bell==true) system("espeak -v ro --stdout 'Test' | aplay");
+	if (_Door_Bell==true) system("espeak -v ro --stdout 'E cineva la usa!' | aplay");
 }
 
 void saveAllStatus() {
