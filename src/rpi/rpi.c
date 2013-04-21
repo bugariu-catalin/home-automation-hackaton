@@ -59,6 +59,7 @@ void readRemoteData() {
 	char cmd[] = "";
 	char data[] = "";
 	char * tmp;
+	strcpy(remoteCmd, "");
 	while (serialDataAvail (A_HANDLER)) {
 	  snprintf(buffer, sizeof(buffer), "%s%c", remoteCmd, serialGetchar (A_HANDLER));
 	  strcpy(remoteCmd, buffer);
